@@ -6,6 +6,7 @@ class AmazonBook::list
 
   def self.scrape_list_page(number)
     open_url.css("#zg_paginationWrapper .p13n-sc-truncated").each do |abc|
+      binding.pry
     end
 
   end

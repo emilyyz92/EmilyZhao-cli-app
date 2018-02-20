@@ -1,9 +1,10 @@
 class AmazonBook::book
-  attr_accessor :url, :name, :number_of_review, :author, :publisher, :language, :availability, :price, :cover
+  attr_accessor :url, :name, :number_of_review, :author, :language, :availability, :price, :cover
 
   @@all = []
 
-  def initialize
+  def initialize(name)
     @@all << self
+    @name = name
   end
 end

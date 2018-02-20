@@ -1,16 +1,17 @@
 require 'open-uri'
-class AmazonBook::list
-  def open_url(url="https://www.amazon.com/best-sellers-books-Amazon/zgbs/books")
-    doc = Nokogiri::HTML(open(url))
-  end
+class AmazonBook::Scraper
 
-  def self.scrape_list_page(number)
-    open_url.css("#zg_paginationWrapper .p13n-sc-truncated").each do |abc|
-      binding.pry
+  def self.scrape_list_page(number) #returns a list of books
+    doc = Nokogiri::HTML(open("https://www.amazon.com/best-sellers-books-Amazon/zgbs/books"))
+    binding.pry
+    book_list = {}
+    doc.css("#zg_centerListWrapper").each_with_index do |a,i|
+      book_list [i] = "#{i+1}. #{a.css("a").css("img").attr('alt').value} - "
     end
 
   end
 
-  def self.scrape_book_page(book_url)
+  def self.scrape_book_page(number)
+    #scrape book page's url
   end
 end

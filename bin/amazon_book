@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/amazon_book'
+
+AmazonBook::CLI.new.start

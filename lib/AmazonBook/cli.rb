@@ -4,6 +4,7 @@ class AmazonBook::CLI
     input = gets.strip
     if input.to_i.is_a? Integer
       puts "Printing a list of #{input} books:"
+      AmazonBook::Scraper.scrape_list_page(input.to_i)
     elsif input.downcase == "exit"
       puts "Thank you and hope to see you again!"
     else
@@ -12,7 +13,7 @@ class AmazonBook::CLI
 
     puts "Would you like to learn any of the books in the list? Enter number of book, or exit."
     input_1 = gets.strip
-    if input.to_i.is_a? Integer
+    if input_1.to_i.is_a? Integer
       booklist(input_1)
     elsif input.downcase == "exit"
       puts "Thank you and hope to see you again!"
@@ -21,7 +22,8 @@ class AmazonBook::CLI
     end
   end
 
-  def booklist
+  def booklist(number)
+    AmazonBook::Scraper.scrape_book_page(number) #below is what this should look like
     puts "Book Name: Harry Potter"
     puts "Review: 4 stars"
     puts "Author: JK Rowling"

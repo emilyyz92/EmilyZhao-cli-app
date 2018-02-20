@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Emily Zhao"]
   spec.email         = ["tong.zhao.92@gmail.com"]
 
-  spec.summary       = %q{This is a CLI gem that returns a list of top Amazon book best sellers and their details.}
+  spec.summary       = %q{This is a CLI gem that returns a list of top Amazon book best sellers and the books' details.}
   spec.homepage      = "https://github.com/emilyyz92/EmilyZhao-cli-app"
   spec.license       = "MIT"
 

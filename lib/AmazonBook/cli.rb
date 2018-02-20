@@ -28,7 +28,7 @@ class AmazonBook::CLI
     puts "Lanuage: English"
     puts "Availability: In Stock"
     puts "Price: $10.99"
-    puts "Cover: Softcover"
+    puts "Cover: paper cover"
   end
 
 

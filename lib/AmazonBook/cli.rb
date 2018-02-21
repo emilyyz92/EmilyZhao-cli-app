@@ -5,18 +5,18 @@ class AmazonBook::CLI
     input = gets.strip
     if input.to_i.is_a? Integer
       puts "Printing a list of #{input} books:"
-      AmazonBook::Scraper.scrape_list_page(input.to_i)
+      print_list(input)
     elsif input.downcase == "exit"
       puts "Thank you and hope to see you again!"
     else
       puts "Input invalid. Please input an integer or type exit."
     end
 
-    puts "Would you like to learn any of the books in the list? Enter number of book, or exit."
+    puts "Would you like to learn more on any of the books in the list? Enter number of book, or exit."
 
     input_1 = gets.strip
     if input_1.to_i.is_a? Integer
-      booklist(input_1)
+      print_attribute(input_1)
     elsif input.downcase == "exit"
       puts "Thank you and hope to see you again!"
     else

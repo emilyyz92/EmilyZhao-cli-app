@@ -8,10 +8,9 @@ class AmazonBook::Scraper
     doc.css("#zg_centerListWrapper").each_with_index do |a,i|
       book_list [i] = "#{i+1}. #{a.css("a").css("img").attr('alt').value} - "
     end
-
   end
 
-  def self.scrape_book_page #add attributes to book objects
+  def self.scrape_book_page(url) #add attributes to book objects
     #scrape book page's url
     #should return {:name => Harry Potter, :author => JK Rowling, :review => 4.9 out of 5.0...}
   end

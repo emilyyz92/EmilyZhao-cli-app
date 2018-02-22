@@ -6,7 +6,9 @@ class AmazonBook::Scraper
     binding.pry
     book_list = [] #should return [{:name => "Harry Potter", :author => JK Rowling}]
     doc.css("#zg_centerListWrapper").each_with_index do |a,i|
-      book_list [i] = "#{i+1}. #{a.css("a").css("img").attr('alt').value} - "
+      book_list [i] = {}
+      binding.pry
+      book_list[i][:name] = "#{a.css("#zg_itemImmersion").css("a div").text}"
     end
   end
 

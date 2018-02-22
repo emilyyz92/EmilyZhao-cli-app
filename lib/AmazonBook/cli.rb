@@ -1,4 +1,5 @@
 class AmazonBook::CLI
+
   def start
     puts "Welcome to Amazon Book Best Sellers Gem! Please enter the number of top Amazon books you'd like to see on the list:"
 
@@ -27,7 +28,10 @@ class AmazonBook::CLI
   def print_list(number)
     AmazonBook::Scraper.scrape_list_page.each_with_index do |item, i|
       i_1 = i + 1
-      puts "#{i_1}. item[:name] - item[:author]"
+      until i_1 > number.to_i do
+        puts "#{i_1}. item[:name] - item[:author]"
+        i_1 += 1
+      end
     end
   end
 

@@ -1,9 +1,9 @@
 require 'open-uri'
 class AmazonBook::Scraper
 
-  BASE_PATH = "../../fixtures/"
+  BASE_PATH = "./././fixtures/"
   def self.scrape_list_page #returns a list of books
-    doc = Nokogiri::HTML(open("../../fixtures/list.html"))
+    doc = Nokogiri::HTML(open("./././fixtures/list.html"))
     binding.pry
     book_list = [] #should return [{:name => "Harry Potter", :author => JK Rowling}]
     doc.css("#zg_centerListWrapper .zg_itemImmersion").each_with_index do |a,i|

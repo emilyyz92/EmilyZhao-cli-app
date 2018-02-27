@@ -3,8 +3,7 @@ class AmazonBook::Scraper
 
   BASE_PATH = "./././fixtures/"
   def self.scrape_list_page #returns a list of books
-    doc = Nokogiri::HTML(open(BASE_PATH + "list.html"))
-    binding.pry
+    doc = Nokogiri::HTML(open("./././fixtures/booklist.html"))
     book_list = [] #should return [{:name => "Harry Potter", :author => JK Rowling}]
     doc.css("#zg_centerListWrapper .zg_itemWrapper").each_with_index do |a,i|
       book_list [i] = {}

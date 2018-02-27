@@ -13,7 +13,7 @@ class AmazonBook::CLI
       puts "Input invalid. Please input an integer or type exit."
     end
 
-    puts "Would you like to learn more on any of the books in the list? Enter number of book, or exit."
+    puts "Would you like to learn more on any of the books in the list? Enter the number of book, or exit."
 
     input_1 = gets.strip
     if input_1.to_i.is_a? Integer
@@ -27,15 +27,19 @@ class AmazonBook::CLI
 
   def print_list(number)
     AmazonBook::Scraper.scrape_list_page.each_with_index do |item, i|
-      i_1 = i + 1
-      until i_1 > number.to_i do
-        puts "#{i_1}. item[:name] - item[:author]"
-        i_1 += 1
+      if i+1 <= number.to_i
+        i_1 = i + 1
+        puts "#{i_1}. #{item[:name]}}"
       end
     end
   end
 
   def print_attrbute(number) #below is what this should look like
+    url = AmazonBook::Scraper.scrape_list_page[number - 1][:url]
+    AmazonBook::Scraper.scrape_book_page(url)
+    AmazonBook::Book.all.detect do |book|
+    end
+
     puts "Book Name: #{book_hash(number)[:name]}"
     puts "Review: #{book_hash(number)[:review]}"
     puts "Author: JK Rowling"

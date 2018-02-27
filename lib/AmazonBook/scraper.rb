@@ -7,8 +7,7 @@ class AmazonBook::Scraper
     book_list = [] #should return [{:name => "Harry Potter", :author => JK Rowling}]
     doc.css("#zg_centerListWrapper .zg_itemWrapper").each_with_index do |a,i|
       book_list [i] = {}
-      binding.pry
-      book_list[i][:name] = "#{a.css("div a div a").text}"
+      book_list[i][:name] = "#{a.css("a div").children.attr('alt').value}"
     end
   end
 

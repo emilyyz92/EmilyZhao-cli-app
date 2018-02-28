@@ -11,7 +11,7 @@ class AmazonBook::Book
 
   def self.create_from_list(book_array)
     book_array.each do |book|
-      Book.new(book[:name],book[:url])
+      self.new(book[:name],book[:url])
     end
   end
 

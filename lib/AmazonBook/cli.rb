@@ -37,7 +37,7 @@ class AmazonBook::CLI
   end
 
   def print_attribute(number) #below is what this should look like
-    url = AmazonBook::Scraper.scrape_list_page[number - 1][:url]
+    url = AmazonBook::Scraper.scrape_list_page[number.to_i - 1][:url]
     AmazonBook::Scraper.scrape_book_page(url)
 
     puts "Book Name: #{book.name}"

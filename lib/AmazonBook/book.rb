@@ -9,17 +9,17 @@ class AmazonBook::Book
     @@all << self
   end
 
-  def create_from_list(booklist_array = AmazonBook::Scraper.scrape_book_page)
+  def self.create_from_list(book_array)
     book_array.each do |book|
       Book.new(book[:name],book[:url])
     end
   end
 
-  def add_attributes(book_array)
-    @name = book_array[:name]
-    @review = book_array[:review]
-    @url = book_array[:url]
-    @author = book_array[:author]
+  def add_attributes(book_hash)
+    @name = book_hash[:name]
+    @review = book_hash[:review]
+    @url = book_hash[:url]
+    @author = book_hash[:author]
 
   end
 

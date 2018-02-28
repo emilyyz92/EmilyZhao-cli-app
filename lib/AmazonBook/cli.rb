@@ -29,28 +29,24 @@ class AmazonBook::CLI
     AmazonBook::Scraper.scrape_list_page.each_with_index do |item, i|
       if i+1 <= number.to_i
         i_1 = i + 1
-        puts "#{i_1}. #{item[:name]}}"
+        puts "#{i_1}. #{item[:name]}"
       end
     end
+
+    AmazonBook::Book.create_from_list(AmazonBook::Scraper.scrape_list_page)
   end
 
-  def print_attrbute(number) #below is what this should look like
+  def print_attribute(number) #below is what this should look like
     url = AmazonBook::Scraper.scrape_list_page[number - 1][:url]
     AmazonBook::Scraper.scrape_book_page(url)
-    AmazonBook::Book.all.detect do |book|
-    end
 
-    puts "Book Name: #{book_hash(number)[:name]}"
-    puts "Review: #{book_hash(number)[:review]}"
-    puts "Author: JK Rowling"
+    puts "Book Name: #{book.name}"
+    puts "Review: #{book.review}"
+    puts "Author: #{book.author}"
     puts "Lanuage: English"
     puts "Availability: In Stock"
     puts "Price: $10.99"
     puts "Cover: paper cover"
-  end
-
-  def book_hash(number) #take the hash from Scraper class and return the book item
-    AmazonBook::Scraper[number.to_i - 1]
   end
 
 end

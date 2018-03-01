@@ -21,11 +21,12 @@ class AmazonBook::Scraper
     book = AmazonBook::Book.all.detect {|book| book.url == url}
     doc = Nokogiri::HTML(open(url))
     book_hash = {}
-    binding.pry
+
     book_hash[:author] = doc.css("#dp-container #centerCol #booksTitle #byline a").css(".contributorNameID").children.text
     book_hash[:review] = doc.css("#dp-container #centerCol #averageCustomerReviews_feature_div #averageCustomerReviews span span").attr("title").value
     book_hash[:price] = doc.css("#dp-container #centerCol #MediaMatrix #tmmSwatches ul li").each do |list|
-      list.css("a span")
+      binding.pry
+      list.css("a > span").text
     end
     book_hash[:availability]
     book_hash[:publisher]

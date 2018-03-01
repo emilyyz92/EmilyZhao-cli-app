@@ -16,13 +16,14 @@ class AmazonBook::CLI
     puts "Would you like to learn more on any of the books in the list? Enter the number of the book, or exit."
 
     input_1 = gets.strip
-    if input_1.to_i.is_a? Integer && input_1.to_i < input.to_i
-      print_attribute(input_1)
-    elsif input.downcase == "exit"
-      puts "Thank you and hope to see you again!"
-    else
-      puts "Input invalid. Please try again or type exit."
-    end
+    cli_attribute(input_1)
+    # if input_1.to_i.is_a? Integer && input_1.to_i < input.to_i
+    #   print_attribute(input_1)
+    # elsif input.downcase == "exit"
+    #   puts "Thank you and hope to see you again!"
+    # else
+    #   puts "Input invalid. Please try again or type exit."
+    # end
   end
 
   def print_list(number)
@@ -47,6 +48,20 @@ class AmazonBook::CLI
     puts "Availability: In Stock"
     puts "Price: $10.99"
     puts "Cover: paper cover"
+  end
+
+  def cli_attribute(input_1)
+    until input_1.downcase == "exit"
+      if input_1.to_i < AmazonBook::Scraper.scrape_list_page.length
+        print_attribute(input_1)
+        puts "Would you like to see another book?"
+        input_0 = gets.strip
+        cli_attribute(input_0)
+      else
+        puts "Input invalid. Please try again or type exit."
+      end
+    end
+    puts "Thank you and hope to see you again!"
   end
 
 end

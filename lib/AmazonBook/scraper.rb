@@ -24,7 +24,9 @@ class AmazonBook::Scraper
     binding.pry
     book_hash[:author] = doc.css("#dp-container #centerCol #booksTitle #byline a").css(".contributorNameID").children.text
     book_hash[:review] = doc.css("#dp-container #centerCol #averageCustomerReviews_feature_div #averageCustomerReviews span span").attr("title").value
-    book_hash[:price]
+    book_hash[:price] = doc.css("#dp-container #centerCol #MediaMatrix #tmmSwatches ul li").each do |list|
+      list.css("a span")
+    end
     book_hash[:availability]
     book_hash[:publisher]
     book.add_attributes(book_hash)

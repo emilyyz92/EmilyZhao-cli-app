@@ -13,15 +13,15 @@ class AmazonBook::CLI
       puts "Input invalid. Please input an integer or type exit."
     end
 
-    puts "Would you like to learn more on any of the books in the list? Enter the number of book, or exit."
+    puts "Would you like to learn more on any of the books in the list? Enter the number of the book, or exit."
 
     input_1 = gets.strip
-    if input_1.to_i.is_a? Integer
+    if input_1.to_i.is_a? Integer && input_1.to_i < input.to_i
       print_attribute(input_1)
     elsif input.downcase == "exit"
       puts "Thank you and hope to see you again!"
     else
-      puts "Input invalid. Please input an integer or type exit."
+      puts "Input invalid. Please try again or type exit."
     end
   end
 
@@ -38,12 +38,12 @@ class AmazonBook::CLI
 
   def print_attribute(number) #below is what this should look like
     url = AmazonBook::Scraper.scrape_list_page[number.to_i - 1][:url]
+    book = AmazonBook::Book.all.detect {|book| book.url == url}
     AmazonBook::Scraper.scrape_book_page(url)
 
     puts "Book Name: #{book.name}"
     puts "Review: #{book.review}"
     puts "Author: #{book.author}"
-    puts "Lanuage: English"
     puts "Availability: In Stock"
     puts "Price: $10.99"
     puts "Cover: paper cover"

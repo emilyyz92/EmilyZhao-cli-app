@@ -23,7 +23,6 @@ class AmazonBook::Book
     @price = book_hash[:price]
     @availability = book_hash[:availability]
     @publisher = book_hash[:publisher]
-
   end
 
   def self.all

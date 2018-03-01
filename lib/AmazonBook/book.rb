@@ -1,5 +1,5 @@
 class AmazonBook::Book
-  attr_accessor :url, :name, :review, :author, :language, :availability, :price, :cover
+  attr_accessor :url, :name, :review, :author, :availability, :price, :publisher
 
   @@all = []
 
@@ -20,6 +20,9 @@ class AmazonBook::Book
     @review = book_hash[:review]
     @url = book_hash[:url]
     @author = book_hash[:author]
+    @price = book_hash[:price]
+    @availability = book_hash[:availability]
+    @publisher = book_hash[:publisher]
 
   end
 

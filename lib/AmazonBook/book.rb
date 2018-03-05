@@ -16,9 +16,7 @@ class AmazonBook::Book
   end
 
   def add_attributes(book_hash)
-    @name = book_hash[:name]
     @review = book_hash[:review]
-    @url = book_hash[:url]
     @author = book_hash[:author]
     @price = book_hash[:price]
     @availability = book_hash[:availability]

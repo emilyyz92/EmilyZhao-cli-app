@@ -45,13 +45,12 @@ class AmazonBook::CLI
     puts "Book Name: #{book.name}"
     puts "Review: #{book.review}"
     puts "Author: #{book.author}"
-    puts "Availability: In Stock"
-    puts "Price: $10.99"
-    puts "Cover: paper cover"
+    puts "Availability: #{book.availability}"
+    puts "Price: #{book.price}"
   end
 
   def cli_attribute(input_1)
-    until input_1.downcase == "exit"
+    while input_1.downcase != "exit"
       if input_1.to_i < AmazonBook::Scraper.scrape_list_page.length
         print_attribute(input_1)
         puts "Would you like to see another book?"

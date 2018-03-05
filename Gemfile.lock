@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    daily_deal (0.1.0)
+    amazon_book (0.1.0)
       nokogiri
 
 GEM

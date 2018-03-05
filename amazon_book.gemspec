@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'AmazonBook/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "daily_deal"
+  spec.name          = "amazon_book"
   spec.version       = AmazonBook::VERSION
   spec.authors       = ["Emily Zhao"]
   spec.email         = ["tong.zhao.92@gmail.com"]

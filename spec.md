@@ -1,5 +1,5 @@
 Specs:
 
-[ ] Have a CLI for interfacing with the application
-[ ] Pull data from an external source
-[ ] Implement both list and detail views
+[X] Have a CLI for interfacing with the application
+[X] Pull data from an external source
+[X] Implement both list and detail views

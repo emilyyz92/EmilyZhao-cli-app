@@ -7,8 +7,5 @@ Object Properties:
   Name
   Number of stars (Review)
   Author
-  Publisher
-  Language
   In Stock?/Out of Stock?
   Price
-  Version (Paper cover/hard cover)

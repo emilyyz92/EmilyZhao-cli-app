@@ -54,8 +54,8 @@ class AmazonBook::CLI
       if input_1.to_i < AmazonBook::Scraper.scrape_list_page.length
         print_attribute(input_1)
         puts "Would you like to see another book?"
-        input_0 = gets.strip
-        cli_attribute(input_0)
+        input_1 = gets.strip
+        cli_attribute(input_1)
       else
         puts "Input invalid. Please try again or type exit."
       end

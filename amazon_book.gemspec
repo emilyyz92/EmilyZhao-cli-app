@@ -1,11 +1,12 @@
 # coding: utf-8
+require 'pry'
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'AmazonBook/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "amazon_book"
-  spec.version       = AmazonBook::VERSION
+  spec.name          = "amazon_book_ez"
+  spec.version       = "0.1.0"
   spec.authors       = ["Emily Zhao"]
   spec.email         = ["tong.zhao.92@gmail.com"]
 
